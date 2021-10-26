@@ -15,7 +15,7 @@ catkin_make
 We need to set up the catkin workspace with our repository as well as other repos that we depend on:
 ```
 cd ~/catkin_ws/src
-git clone git@gitlab.lrz.de:modularrobot/20ws/ll/lab_automation.git
+git clone git@github.com:albertoDavila/Icart.git
 
 cd ..
 catkin_make
