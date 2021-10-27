@@ -1,0 +1,54 @@
+lab_robot:
+  # Publish all joint states --------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 100
+
+  # Position Controllers ------------------------------------
+  joint0_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: joint0
+    pid: {p: 6000.0, i: 0.01, d: 1000.0}
+  joint1_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: joint1
+    pid: {p: 100000.0, i: 0.0, d: 1000.0}
+  joint2_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: joint2
+    pid: {p: 2800.0, i: 0.0, d: 1000.0}
+  joint3_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: joint3
+    pid: {p: 2000.0, i: 0.0, d: 0.0}
+  joint4_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: joint4
+    pid: {p: 850.0, i: 0.0, d: 0.0}
+  hand_to_finger1_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: hand_to_finger1
+    pid: {p: 1000.0, i: 0.0, d: 0.0}
+  hand_to_finger2_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: hand_to_finger2
+    pid: {p: 1000.0, i: 0.0, d: 0.0}
+# MoveIt-specific simulation settings
+moveit_sim_hw_interface:
+  joint_model_group: controllers_initial_group_
+  joint_model_group_pose: controllers_initial_pose_
+# Settings for ros_control control loop
+generic_hw_control_loop:
+  loop_hz: 300
+  cycle_time_error_threshold: 0.01
+# Settings for ros_control hardware interface
+hardware_interface:
+  joints:
+    - joint0
+    - joint1
+    - joint2
+    - joint3
+    - joint4
+    - hand_to_finger1
+    - hand_to_finger2
+  sim_control_mode: 1  # 0: position, 1: velocity

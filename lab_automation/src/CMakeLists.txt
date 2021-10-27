@@ -7,7 +7,6 @@ project(lab_automation)
 ## Find catkin macros and libraries
 find_package(catkin REQUIRED COMPONENTS
   gazebo_ros roscpp rospy std_msgs genmsg
-  modrob_workstation
   interactive_markers
   moveit_core
   moveit_visual_tools
@@ -117,14 +116,14 @@ add_executable(put_centrifuge src/put_centrifuge.cpp)
 target_link_libraries(put_centrifuge ${catkin_LIBRARIES})
 add_dependencies(put_centrifuge lab_automation_generate_messages_cpp)
 
-# The motion planning executables.
-add_executable(lab_robot_motion_planning src/motion_planning/motion_planning.cpp)
-target_link_libraries(lab_robot_motion_planning ${catkin_LIBRARIES} ${Boost_LIBRARIES})
-install(TARGETS lab_robot_motion_planning DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+# # The motion planning executables.
+# add_executable(lab_robot_motion_planning src/motion_planning/motion_planning.cpp)
+# target_link_libraries(lab_robot_motion_planning ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+# install(TARGETS lab_robot_motion_planning DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
-add_executable(lab_robot_config_publisher src/motion_planning/config_publisher.cpp)
-target_link_libraries(lab_robot_config_publisher ${catkin_LIBRARIES} ${Boost_LIBRARIES})
-install(TARGETS lab_robot_config_publisher DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+# add_executable(lab_robot_config_publisher src/motion_planning/config_publisher.cpp)
+# target_link_libraries(lab_robot_config_publisher ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+# install(TARGETS lab_robot_config_publisher DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 # The navigation planning executable.
 add_executable(go_to_position src/go_to_position.cpp)

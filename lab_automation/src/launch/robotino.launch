@@ -1,0 +1,52 @@
+<launch>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find lab_automation)/worlds/lab.world"/>
+  </include>
+
+  <!-- Spawn a robot into Gazebo -->
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-file $(find robot_description)/urdf/robotino.urdf -urdf -z 0 -model robotino" />
+
+    <!-- Run the map server --> 
+   <node name="map_server" pkg="map_server" type="map_server" args="$(find lab_automation)/rviz/map_lab.yaml"/> 
+
+  <!-- Launch the static_transform_publisher -->
+  <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="-0.022 0.232 0 0 0 0 base_link laser_link 100" />
+
+  <!-- Launch gmapping components -->
+  <param name="use_sim_time" value="true"/>
+
+  <!-- AMCL node 
+  <node name="amcl" pkg="amcl" type="amcl" />  -->
+
+
+<!-- RUn AMCL -->
+<include file="$(find lab_automation)/launch/amcl.launch"/>  
+
+
+
+
+  <node pkg="gmapping" type="slam_gmapping" name="gmapping">
+        <remap from="scan" to="base_scan"/>
+  </node>
+
+   <node pkg="move_base" type="move_base" name="move_base" output="screen">
+        <param name="footprint_padding" value="0.01" />
+    	<param name="controller_frequency" value="10.0" />
+    	<param name="controller_patience" value="100.0" />
+    	<param name="planner_frequency" value="2.0" />
+
+        <rosparam file="$(find robot_gazebo)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find robot_gazebo)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find robot_gazebo)/config/local_costmap_params.yaml" command="load" />
+        <rosparam file="$(find robot_gazebo)/config/global_costmap_params.yaml" command="load" />
+        <rosparam file="$(find robot_gazebo)/config/trajectory_planner.yaml" command="load" />
+    </node>
+
+    <!-- Launch key controller components -->
+   <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard" output="screen"/>
+
+        
+</launch>
+
+
+

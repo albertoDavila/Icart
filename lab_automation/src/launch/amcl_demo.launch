@@ -1,0 +1,44 @@
+<launch>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find lab_automation)/worlds/tienda.world"/>
+  </include>
+
+  <!-- Spawn a robot into Gazebo -->
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-file $(find robot_description)/urdf/robotino.urdf -urdf -z 0 -model lab_robot" />
+
+  <!-- Launch the static_transform_publisher -->
+  <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="-0.022 0.232 0 0 0 0 robotino_base_link laser_link 100" />
+
+<!-- Run the map server --> 
+<node name="map_server" pkg="map_server" type="map_server" args="$(find lab_automation)/rviz/mapa_super.yaml"/> 
+
+
+
+ <!-- AMCL -->
+<arg name="custom_amcl_launch_file" default="$(find lab_automation)/launch/includes/amcl.launch.xml"/>
+<arg name="initial_pose_x" default="0.0"/> 
+<arg name="initial_pose_y" default="0.0"/> 
+<arg name="initial_pose_a" default="0.0"/>
+<include file="$(arg custom_amcl_launch_file)">
+<arg name="initial_pose_x" value="$(arg initial_pose_x)"/>
+<arg name="initial_pose_y" value="$(arg initial_pose_y)"/>
+<arg name="initial_pose_a" value="$(arg initial_pose_a)"/>
+</include>
+
+
+<!-- Move base -->
+<arg name="custom_param_file" default="$(find robot_gazebo)/config/dwa_local_planner_params.yaml"/>
+
+<include file="$(find lab_automation)/launch/includes/move_base.launch.xml">
+<arg name="custom_param_file" value="$(arg custom_param_file)"/>
+</include>
+
+
+<!-- Launch key controller components -->
+<node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard" output="screen"/>
+
+<!-- Launch RVIZ -->
+<node type="rviz" name="rviz" pkg="rviz" args="-d $(find lab_automation)/rviz/slam.rviz" />
+
+</launch>
