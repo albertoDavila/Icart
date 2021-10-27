@@ -4,20 +4,14 @@
 ## Prerequisites
 The following steps are tested on Ubunto Bionic (18.04) and ROS Melodic. If you use different systems and come across weird error messages, consider upgrading to these.
 You should have set up a catkin workspace (~/catkin_ws) and installed gazebo and gazebo for ROS.
-If you didn't set up the catkin_workspace, do the following:
-```
-mkdir -p ~/catkin_ws/src
-cd ~/catkin_ws/
-catkin_make
-```
 
 ## Setting up the workspace
 We need to set up the catkin workspace with our repository as well as other repos that we depend on:
 ```
-cd ~/catkin_ws/src
-git clone git@github.com:albertoDavila/Icart.git
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/
 
-cd ..
+git clone git@github.com:albertoDavila/Icart.git src
 catkin_make
 source devel/setup.bash
 
@@ -30,7 +24,7 @@ Run `vim ~/.bashrc`(or any other editor). At the bottom, insert a line
 `export GAZEBO_MODEL_PATH=(path to the git repository)`
 
 For example, if the git repo (lab_automation folder) is at /catkin_ws/src/lab_automation (which it should be, if you followed the instructions), the line should be
-`export GAZEBO_MODEL_PATH=/catkin_ws/src/` (dont forget the slash at the end). Afterwards, make sure to source the file (`source ~/.bashrc`).
+`export GAZEBO_MODEL_PATH=$HOME/catkin_ws/src/` (dont forget the slash at the end). Afterwards, make sure to source the file (`source ~/.bashrc`).
 
 Rviz should open the lab and the robot and after a while, the robot should start planning and executing the trajectory.
 
