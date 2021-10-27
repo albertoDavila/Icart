@@ -10,10 +10,18 @@
   <!-- Launch the static_transform_publisher -->
   <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="-0.022 0.232 0 0 0 0 robotino_base_link laser_link 100" />
 
+  <!-- Launch the static_transform_publisher -->
+  <node pkg="tf" type="static_transform_publisher" name="link1_map" args="0 0 0 0 0 0 map odom 100" />
+
+
+
+
+
 <!-- Run the map server --> 
 <node name="map_server" pkg="map_server" type="map_server" args="$(find lab_automation)/rviz/mapa_super.yaml"/> 
 
 
+ 
 
  <!-- AMCL -->
 <arg name="custom_amcl_launch_file" default="$(find lab_automation)/launch/includes/amcl.launch.xml"/>
