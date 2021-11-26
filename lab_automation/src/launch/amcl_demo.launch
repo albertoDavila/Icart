@@ -38,6 +38,8 @@
 <!-- Move base -->
 <arg name="custom_param_file" default="$(find robot_gazebo)/config/dwa_local_planner_params.yaml"/>
 
+
+
 <include file="$(find lab_automation)/launch/includes/move_base.launch.xml">
 <arg name="custom_param_file" value="$(arg custom_param_file)"/>
 </include>
