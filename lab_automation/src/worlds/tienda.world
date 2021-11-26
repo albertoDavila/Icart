@@ -562,15 +562,15 @@
           <geometry>
             <mesh>
               <uri>model://lab_automation/src/worlds/models/naranja.stl</uri>
-              <scale>0.003 0.003 0.003</scale>
+              <scale>0.002 0.002 0.002</scale>
             </mesh>
           </geometry>
           <material>
             <lighting> true</lighting>
-            <ambient>0.87 0.26 0.07 1</ambient>
-            <diffuse>0.87 0.26 0.07 1</diffuse>
+            <ambient>1 0.5088 0.0468 1</ambient>
+            <diffuse>1 0.5088 0.0468 1</diffuse>
             <specular>0.87 0.26 0.07 1</specular>
-            <emissive>0 0 0 1</emissive>
+            <emissive>0.5 0.5 0.5 128</emissive>
           </material>
           <cast_shadows>true</cast_shadows>
           <transparency>false</transparency>
@@ -581,7 +581,7 @@
           <geometry>
             <mesh>
               <uri>model://lab_automation/src/worlds/models/naranja.stl</uri>
-              <scale>0.003 0.003 0.003</scale>
+              <scale>0.002 0.002 0.002</scale>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -630,13 +630,13 @@
           <geometry>
             <mesh>
               <uri>model://lab_automation/src/worlds/models/zanahoria.stl</uri>
-              <scale>0.007 0.007 0.007</scale>
+              <scale>0.005 0.005 0.005</scale>
             </mesh>
           </geometry>
           <material>
             <lighting> true</lighting>
-            <ambient>0.87 0.26 0.07 1</ambient>
-            <diffuse>0.87 0.26 0.07 1</diffuse>
+            <ambient>1 0.5088 0.0468 1</ambient>
+            <diffuse>1 0.5088 0.0468 1</diffuse>
             <specular>0.87 0.26 0.07 1</specular>
             <emissive>0 0 0 1</emissive>
           </material>
@@ -649,7 +649,7 @@
           <geometry>
             <mesh>
               <uri>model://lab_automation/src/worlds/models/zanahoria.stl</uri>
-              <scale>0.007 0.007 0.007</scale>
+              <scale>0.005 0.005 0.005</scale>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -701,9 +701,9 @@
           </geometry>
           <material>
             <lighting> true</lighting>
-            <ambient>0.87 0.26 0.07 1</ambient>
-            <diffuse>0.87 0.26 0.07 1</diffuse>
-            <specular>0.87 0.26 0.07 1</specular>
+            <ambient>1 1 0 1</ambient>
+            <diffuse>1 1 0 1</diffuse>
+            <specular>0 0 0 0 0</specular>
             <emissive>0 0 0 1</emissive>
           </material>
           <cast_shadows>true</cast_shadows>
@@ -826,10 +826,10 @@
 
 
       <model name='naranja'>
-        <pose frame=''>1.594 2.566 0.210 1.57 0 0</pose>
-        <scale>0.003 0.003 0.003</scale>
+        <pose frame=''>1.594 1.189 0.226 0 0 0</pose>
+        <scale>0.002 0.002 0.002</scale>
         <link name='naranja_link'>
-          <pose frame=''>1.594 2.566 0.210 1.57 0 0</pose>
+          <pose frame=''>1.594 1.189 0.226 0 0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -837,10 +837,10 @@
       </model>
 
       <model name='zanahoria'>
-        <pose frame=''>5.428 -1.210 .211 1.57 0 0</pose>
-        <scale>0.007 0.007 0.007</scale>
+        <pose frame=''>5.428 -1.584 .211 1.57 0 0</pose>
+        <scale>0.005 0.005 0.005</scale>
         <link name='zanahoria_link'>
-          <pose frame=''>5.428 -1.210 .211 1.57 0 0</pose>
+          <pose frame=''>5.428 -1.584 .211 1.57 0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -848,10 +848,10 @@
       </model>
 
       <model name='platano'>
-        <pose frame=''>5.149 4.442 .206 1.57 0 1.57</pose>
+        <pose frame=''>5.148 4.301 .2058 1.57 0 3.14</pose>
         <scale>0.01 0.01 0.01</scale>
         <link name='platano_link'>
-          <pose frame=''>5.149 4.442 .206 1.57 0 1.57</pose>
+          <pose frame=''>5.148 4.301 .2058 1.57 0 3.14</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
