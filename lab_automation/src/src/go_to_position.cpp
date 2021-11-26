@@ -21,12 +21,12 @@ int main(int argc, char** argv){
   move_base_msgs::MoveBaseGoal goal;
 
   //we'll send a goal to the robot to move toward the goal
-  goal.target_pose.header.frame_id = "map";
+  goal.target_pose.header.frame_id = "odom";
   goal.target_pose.header.stamp = ros::Time::now();
-
-  goal.target_pose.pose.position.x = -3.32;
-  goal.target_pose.pose.position.y = 3.27;
+  goal.target_pose.pose.position.x = -1.56;
+  goal.target_pose.pose.position.y = 3;
   goal.target_pose.pose.orientation.w = 1.0;
+
 
   ROS_INFO("Sending goal");
   ac.sendGoal(goal);
