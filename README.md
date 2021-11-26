@@ -15,7 +15,7 @@ git clone git@github.com:albertoDavila/Icart.git src
 catkin_make
 source devel/setup.bash
 
-sudo apt-get install ros-melodic-teleop-twist-keyboard ros-melodic-gmapping ros-melodic-ros-control ros-melodic-move-base ros-melodic-effort-controllers ros-melodic-joint-state-controller ros-melodic-joint-state-publisher ros-melodic-robot-state-publisher ros-melodic-realsense2-camera ros-melodic-realsense2-description ros-melodic-moveit ros-melodic-moveit-visual-tools ros-melodic-gazebo-ros-pkgs ros-melodic-gazebo-ros-control ros-melodic-ros-controllers ros-melodic-map-server ros-melodic-gmapping
+sudo apt-get install ros-melodic-teleop-twist-keyboard ros-melodic-gmapping ros-melodic-ros-control ros-melodic-move-base ros-melodic-effort-controllers ros-melodic-joint-state-controller ros-melodic-joint-state-publisher ros-melodic-robot-state-publisher ros-melodic-realsense2-camera ros-melodic-realsense2-description ros-melodic-moveit ros-melodic-moveit-visual-tools ros-melodic-gazebo-ros-pkgs ros-melodic-gazebo-ros-control ros-melodic-ros-controllers ros-melodic-map-server ros-melodic-gmapping ros-melodic-dwa-local-planner
 ```
 
 ## Setting up the gazebo environment
