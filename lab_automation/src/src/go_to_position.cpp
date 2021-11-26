@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include <ros/ros.h>
 #include <move_base_msgs/MoveBaseAction.h>
 #include <actionlib/client/simple_action_client.h>
@@ -23,9 +24,9 @@ int main(int argc, char** argv){
   //we'll send a goal to the robot to move toward the goal
   goal.target_pose.header.frame_id = "odom";
   goal.target_pose.header.stamp = ros::Time::now();
-  goal.target_pose.pose.position.x = -1.56;
-  goal.target_pose.pose.position.y = 3;
-  goal.target_pose.pose.orientation.w = 1.0;
+  goal.target_pose.pose.position.x = atof(argv[1]);
+  goal.target_pose.pose.position.y = atof(argv[2]);
+  goal.target_pose.pose.orientation.w = atof(argv[3]);
 
 
   ROS_INFO("Sending goal");
