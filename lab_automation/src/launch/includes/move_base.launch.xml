@@ -22,6 +22,7 @@
     <rosparam file="$(find robot_gazebo)/config/navfn_global_planner_params.yaml" command="load" />
     <!-- external params file that could be loaded into the move_base namespace -->
     <rosparam file="$(arg custom_param_file)" command="load" />
+    <!-- <rosparam file="$(arg custom_global_param_file)" command="load" /> -->
    
 
     
