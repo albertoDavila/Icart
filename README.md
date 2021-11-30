@@ -42,7 +42,9 @@ Now, there are two options to perform the navigation:
 The first one is to use the "2D nav goal" in rviz and select the desired goal in the map. 
 
 The other way is to use the cpp file go_to_position by using the command:
-`rosrun lab_automation go_to_position` 
+`rosrun lab_automation go_to_position 5.09 5.14 1.0`
+
+**Note that the three parameters in the end refer to x, y and w (they can be modififed); and they are required to specify goal position.**
 
 You have to change the values of goal.target_pose.pose.position.x, ,goal.target_pose.pose.position.y and goal.target_pose.pose.orientation.w depending on which goal point you want to reach. 
 
